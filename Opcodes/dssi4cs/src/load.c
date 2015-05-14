@@ -55,11 +55,7 @@ void   *dlopenLADSPA(CSOUND *csound, const char *pcFilename, int32_t iFlag)
         csound->Message(csound,
                         Str("DSSI4CS: LADSPA_PATH environment "
                             "variable not set.\n"));
-#ifdef LIB64
-        pcLADSPAPath = strdup("/usr/lib64/ladspa/");
-#else
-        pcLADSPAPath = strdup("/usr/lib/ladspa/");
-#endif
+        pcLADSPAPath = strdup(DEFAULT_LADSPA_PATH);
       }
       if (pcDSSIPath) {
         int32_t len = strlen(pcLADSPAPath)+strlen(pcDSSIPath)+2;

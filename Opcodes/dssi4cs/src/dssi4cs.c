@@ -1073,11 +1073,7 @@ LADSPAPluginSearch(CSOUND *csound,
     if (!pcLADSPAPath) {
       csound->Message(csound,
                       Str("DSSI4CS: LADSPA_PATH environment variable not set.\n"));
-#ifdef LIB64
-      pcLADSPAPath = "/usr/lib64/ladspa/";
-#else
-      pcLADSPAPath = "/usr/lib/ladspa/";
-#endif
+      pcLADSPAPath = DEFAULT_LADSPA_PATH;
     }
     if (!pcDSSIPath) {
       csound->Message(csound,
@@ -1160,6 +1156,7 @@ int32_t dssilist(CSOUND * csound, DSSILIST * p)
     if (!pcLADSPAPath) {
       csound->Message(csound,
                       Str("DSSI4CS: LADSPA_PATH environment variable not set.\n"));
+      pcLADSPAPath = DEFAULT_LADSPA_PATH;
     }
     if (!pcDSSIPath) {
       csound->Message(csound,
